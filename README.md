@@ -21,11 +21,11 @@ To replicate the results of this project, you must have:
 
 To run the code locally, it's also best to **clone this repository**. This requires that you have [Git](https://git-scm.com/) installed.
 
-Open your command prompt or terminal, navigate to the directory (folder) where you'd like to store the project, and run:
+Open your command prompt or terminal, navigate to the directory where you'd like to store the project, and run:
 
 ```bash
-git clone <https url>
-cd <repository-folder>
+git clone https://github.com/jhtullis/Blast_Classification.git
+cd Blast_Classification
 ```
 
 ### 1. Create and Activate a Virtual Environment (recommended)
