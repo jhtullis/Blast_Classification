@@ -5,7 +5,7 @@
 
 ## Introduction
 
-Blasts and reactive lymphocytes (RLs) are classes of white blood cells that are hard for even experts to differentiate under the microscope, but signal very different clinical outcomes. This GitHub page documents the training, validation and testing of classification algorithms to differentiate between blast subtypes and RLs based solely on quantitative data describing the visual texture and structure of the cell nucleus. This data was obtained by processing labeled images of the cells' nuclei using [TWOMBLI](https://github.com/wershofe/TWOMBLI).
+Blasts and reactive lymphocytes (RLs) are classes of white blood cells that are hard even for experts to differentiate under the microscope, but signal very different clinical outcomes. This GitHub page documents the training, validation and testing of classification algorithms to differentiate between blast subtypes and RLs based solely on quantitative data describing the visual texture and structure of the cell nucleus. This data was obtained by processing labeled images of the cells' nuclei using [TWOMBLI](https://github.com/wershofe/TWOMBLI).
 
 ## Setup Instructions
 
@@ -70,6 +70,9 @@ In VSCode,
 - On Windows:`venv\Scripts\python.exe`
 
 5. Click 'Run All' to run the notebook cells.
+
+<!-- ## Content -->
+<!-- add content summary here -->
 
 ## Attribution
 
