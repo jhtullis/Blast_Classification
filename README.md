@@ -13,12 +13,12 @@ Because the models are trained on relatively meaningful, texture related feature
 ```bash
 Blast_Classification
 ├── Data/               
-|   └── Cell_Data.xlsx  # labeled data used to train classifiers
+│   └── Cell_Data.xlsx  # labeled data used to train classifiers
 ├── Modeling/           
-|   ├── models_workflow.ipynb   # code to train and test models
-|   ├── models.pickle           # trained models
-|   ├── results.txt             # model testing results
-|   └── validation.xlsx         # validation results
+│   ├── models_workflow.ipynb   # code to train and test models
+│   ├── models.pickle           # trained models
+│   ├── results.txt             # model testing results
+│   └── validation.xlsx         # validation results
 ├── requirements.txt    # project dependencies
 └── README.md           # you are here
 ```
