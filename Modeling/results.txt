@@ -1,369 +1,547 @@
-# note: feature importance in this file was calculated with 100 repeats per function
-# call to reduce uncertainty, but the default in the program is 5.
-*All Cells*
+*All Cells*, RandomForestClassifier
 classes:['L1' 'L2' 'L3' 'Monoblasts' 'Myeloblasts' 'Reactive Lymphs']
 confusion matrix:
-[[101  12   1   0  14  10]
- [ 14  71  21  16  25  11]
- [  1  34  59   7  13   7]
- [  0  20  15  71   8   8]
- [ 24  25   4  11  54   7]
- [ 36  10   3  11  11  45]]
-accuracy by class: [0.85641026 0.75897436 0.86410256 0.87692308 0.81794872 0.85384615]
-average accuracy (balanced, by class): 0.838034188034188
-precision by class: [0.57386364 0.4127907  0.57281553 0.61206897 0.432      0.51136364]
-average precision (balanced, by class): 0.5191504116499192
-sensitivity by class: [0.73188406 0.44936709 0.48760331 0.58196721 0.432      0.38793103]
-average sensitivity (balanced, by class): 0.5117921166602076
-specificity by class: [0.88317757 0.83762058 0.93323217 0.93161094 0.89160305 0.93524096]
-average specificity (balanced, by class): 0.9020808797276408
-AUC (OVO): 0.836717559674519
-AUC (OVR): 0.8356481137495838
+[[99 18  0  2 13  6]
+ [13 67 23 17 34  4]
+ [ 0 30 61 10 12  8]
+ [ 0 16  8 78  7 13]
+ [21 26  1 11 60  6]
+ [36  8  5 13 16 38]]
+ROC AUC (OVO): 0.8408580399499311
+ROC AUC (OVR): 0.8400561950217006
+accuracy by class: [0.86025641 0.75769231 0.87564103 0.87564103 0.81153846 0.8525641 ]
+average accuracy (balanced, by class): 0.8388888888888889
+precision by class: [0.58579882 0.40606061 0.62244898 0.59541985 0.42253521 0.50666667]
+average precision (balanced, by class): 0.5231550212471677
+sensitivity by class: [0.7173913  0.42405063 0.50413223 0.63934426 0.48       0.32758621]
+average sensitivity (balanced, by class): 0.5154174396426351
+specificity by class: [0.89096573 0.84244373 0.94385432 0.91945289 0.87480916 0.94427711]
+average specificity (balanced, by class): 0.9026338238337136
 Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
-Permutation importance using training set:
-	mean accuracy importances: {'Lacunarity': 0.03201282051282061, 'Total Length (microns)': 0.032025641025641115, 'Endpoints': 0.01668803418803423, 'HGU (microns)': 0.015346153846153872, 'Branchpoints': 0.018341880341880362, 'Box-Counting Fractal Dimension': 0.015696581196581284, 'Curvature_50.0': 0.0020213675213675143, '% High Density Matrix': 0.040217948717948815, 'Alignment': 0.0018461538461538396, 'Branchpoints/Total Length': 0.01249145299145303, 'Endpoints/Total Length': 0.017641025641025723, 'Average Fiber Length': 0.015495726495726485, 'Average Fiber Thickness': 0.03314957264957274}
-	mean precision importances: {'Lacunarity': 0.10182898092613683, 'Total Length (microns)': 0.0976264657250018, 'Endpoints': 0.053688361710323165, 'HGU (microns)': 0.03999001950579437, 'Branchpoints': 0.061984486343704105, 'Box-Counting Fractal Dimension': 0.03319405148012669, 'Curvature_50.0': 0.008027831933896506, '% High Density Matrix': 0.14566570736692377, 'Alignment': 0.006148483564168659, 'Branchpoints/Total Length': 0.04110987324419438, 'Endpoints/Total Length': 0.04587137327803652, 'Average Fiber Length': 0.04692143840034721, 'Average Fiber Thickness': 0.08270012528449618}
-	mean sensitivity importances: {'Lacunarity': 0.09591847250236722, 'Total Length (microns)': 0.09753730089741533, 'Endpoints': 0.05385096497973863, 'HGU (microns)': 0.048219202917033126, 'Branchpoints': 0.05414996191727815, 'Box-Counting Fractal Dimension': 0.0514688999026657, 'Curvature_50.0': 0.006061519890427444, '% High Density Matrix': 0.12174178509206661, 'Alignment': 0.0051745786084192455, 'Branchpoints/Total Length': 0.03707803079237508, 'Endpoints/Total Length': 0.05390637328222029, 'Average Fiber Length': 0.0461911414842862, 'Average Fiber Thickness': 0.09510085878026948}
-	mean specificity importances: {'Lacunarity': 0.01896235419576512, 'Total Length (microns)': 0.019107092163711033, 'Endpoints': 0.010273296181560502, 'HGU (microns)': 0.009423537529543134, 'Branchpoints': 0.010967459685678263, 'Box-Counting Fractal Dimension': 0.010020957702852974, 'Curvature_50.0': 0.0011585946379950652, '% High Density Matrix': 0.024105834282132813, 'Alignment': 0.001148966873241647, 'Branchpoints/Total Length': 0.007415146718742055, 'Endpoints/Total Length': 0.010738100266299243, 'Average Fiber Length': 0.009169622004491357, 'Average Fiber Thickness': 0.020285377537246633}
-Permutation importance using testing set:
-	mean accuracy importances: {'Lacunarity': 0.0326025641025642, 'Total Length (microns)': 0.032196581196581295, 'Endpoints': 0.01749572649572654, 'HGU (microns)': 0.016055555555555583, 'Branchpoints': 0.018307692307692316, 'Box-Counting Fractal Dimension': 0.0158076923076924, 'Curvature_50.0': 0.0017777777777777714, '% High Density Matrix': 0.039905982905982997, 'Alignment': 0.0018418803418803354, 'Branchpoints/Total Length': 0.01210256410256413, 'Endpoints/Total Length': 0.018324786324786423, 'Average Fiber Length': 0.014499999999999975, 'Average Fiber Thickness': 0.032880341880341966}
-	mean precision importances: {'Lacunarity': 0.1034184603965223, 'Total Length (microns)': 0.0986348198744056, 'Endpoints': 0.056162044916880545, 'HGU (microns)': 0.04245942628421209, 'Branchpoints': 0.06209569685109209, 'Box-Counting Fractal Dimension': 0.03367594146508286, 'Curvature_50.0': 0.007462045448049843, '% High Density Matrix': 0.14477304693786994, 'Alignment': 0.006275537179477822, 'Branchpoints/Total Length': 0.040253013339593614, 'Endpoints/Total Length': 0.0492777471560548, 'Average Fiber Length': 0.04393594114344454, 'Average Fiber Thickness': 0.0818152845361988}
-	mean sensitivity importances: {'Lacunarity': 0.09749067280719631, 'Total Length (microns)': 0.09845834902024463, 'Endpoints': 0.056267943840312376, 'HGU (microns)': 0.050341543570567596, 'Branchpoints': 0.05418397826537236, 'Box-Counting Fractal Dimension': 0.05182084004854105, 'Curvature_50.0': 0.005376799652836982, '% High Density Matrix': 0.12098960376778717, 'Alignment': 0.005316215943270064, 'Branchpoints/Total Length': 0.03617002708828011, 'Endpoints/Total Length': 0.056182893425175864, 'Average Fiber Length': 0.04331496964077346, 'Average Fiber Thickness': 0.09403242819877614}
-	mean specificity importances: {'Lacunarity': 0.01933282042197931, 'Total Length (microns)': 0.01921737277113651, 'Endpoints': 0.010751595368443412, 'HGU (microns)': 0.00985902056115415, 'Branchpoints': 0.010954564721851925, 'Box-Counting Fractal Dimension': 0.010089945224772032, 'Curvature_50.0': 0.0010105424847040002, '% High Density Matrix': 0.023924194241311293, 'Alignment': 0.0011460488502765531, 'Branchpoints/Total Length': 0.007195561710168075, 'Endpoints/Total Length': 0.011149667257285665, 'Average Fiber Length': 0.008575507668140426, 'Average Fiber Thickness': 0.02011739659365399}
-Final feature importances (balanced average over all previously reported values):
-	{'Lacunarity': 0.06269589323316899, 'Total Length (microns)': 0.06185045283426716, 'Endpoints': 0.03439724596012742, 'HGU (microns)': 0.02896180747125174, 'Branchpoints': 0.036373215054318696, 'Box-Counting Fractal Dimension': 0.02772186366603937, 'Curvature_50.0': 0.004112059918381891, '% High Density Matrix': 0.08266551291400293, 'Alignment': 0.003612233150861021, 'Branchpoints/Total Length': 0.024226958748421307, 'Endpoints/Total Length': 0.032886495828860565, 'Average Fiber Length': 0.028513043354651206, 'Average Fiber Thickness': 0.057510173182569485}
 Features in order of final importance:
-	1.    % High Density Matrix               0.08266551291400293
-	2.    Lacunarity                          0.06269589323316899
-	3.    Total Length (microns)              0.06185045283426716
-	4.    Average Fiber Thickness             0.057510173182569485
-	5.    Branchpoints                        0.036373215054318696
-	6.    Endpoints                           0.03439724596012742
-	7.    Endpoints/Total Length              0.032886495828860565
-	8.    HGU (microns)                       0.02896180747125174
-	9.    Average Fiber Length                0.028513043354651206
-	10.   Box-Counting Fractal Dimension      0.02772186366603937
-	11.   Branchpoints/Total Length           0.024226958748421307
-	12.   Curvature_50.0                      0.004112059918381891
-	13.   Alignment                           0.003612233150861021
+	1.    % High Density Matrix               0.055945837980898486
+	2.    Lacunarity                          0.0546025959884162
+	3.    Box-Counting Fractal Dimension      0.04444915802182705
+	4.    Average Fiber Thickness             0.04375982658190812
+	5.    Total Length (microns)              0.043115790334475684
+	6.    HGU (microns)                       0.03814679993693453
+	7.    Branchpoints                        0.03381099928799969
+	8.    Endpoints                           0.03344608446830814
+	9.    Branchpoints/Total Length           0.0313968982422936
+	10.   Average Fiber Length                0.02733199947817468
+	11.   Endpoints/Total Length              0.026396448368569095
+	12.   Curvature_50.0                      0.01766570027915613
+	13.   Alignment                           0.015605582899310765
 Model details:
-{'reduce_dim__n_components': None, 'classify__n_estimators': 300, 'classify__min_samples_split': 3, 'classify__max_features': 'sqrt', 'classify__max_depth': 10, 'classify__bootstrap': True, 'classify': RandomForestClassifier()}
+{'reduce_dim__n_components': 10, 'classify__n_estimators': 300, 'classify__min_samples_split': 4, 'classify__min_samples_leaf': 1, 'classify__max_features': 'log2', 'classify__max_depth': None, 'classify__bootstrap': True, 'classify': RandomForestClassifier(max_features='log2', min_samples_split=4,
+                       n_estimators=300, random_state=42)}
 
 
-*L1 and RL*
+*All Cells*, KNeighborsClassifier
+classes:['L1' 'L2' 'L3' 'Monoblasts' 'Myeloblasts' 'Reactive Lymphs']
+confusion matrix:
+[[93 16  2  2 15 10]
+ [14 60 28 22 32  2]
+ [ 2 37 52 14 12  4]
+ [ 1 16 13 72  9 11]
+ [18 28  2 14 62  1]
+ [37 12  6 18 14 29]]
+ROC AUC (OVO): 0.8186627234912467
+ROC AUC (OVR): 0.8176609369037737
+accuracy by class: [0.85       0.73461538 0.84615385 0.84615385 0.81410256 0.8525641 ]
+average accuracy (balanced, by class): 0.823931623931624
+precision by class: [0.56363636 0.35502959 0.50485437 0.50704225 0.43055556 0.50877193]
+average precision (balanced, by class): 0.47831500954474376
+sensitivity by class: [0.67391304 0.37974684 0.42975207 0.59016393 0.496      0.25      ]
+average sensitivity (balanced, by class): 0.4699293132438718
+specificity by class: [0.88785047 0.82475884 0.92261002 0.89361702 0.87480916 0.95783133]
+average specificity (balanced, by class): 0.8935794719651834
+Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
+Features in order of final importance:
+	1.    % High Density Matrix               0.05001322660974153
+	2.    Lacunarity                          0.04968605084476982
+	3.    Total Length (microns)              0.043003266743574485
+	4.    Average Fiber Thickness             0.04264074505874573
+	5.    Box-Counting Fractal Dimension      0.039726455362319495
+	6.    HGU (microns)                       0.03816142304853518
+	7.    Branchpoints/Total Length           0.03760998936690371
+	8.    Branchpoints                        0.03717194759352216
+	9.    Endpoints/Total Length              0.03529972014878787
+	10.   Endpoints                           0.03510875682805295
+	11.   Average Fiber Length                0.03422420615335478
+	12.   Alignment                           0.03279017209423294
+	13.   Curvature_50.0                      0.03155186503672424
+Model details:
+{'reduce_dim__n_components': None, 'classify__weights': 'distance', 'classify__p': 1, 'classify__n_neighbors': 25, 'classify': KNeighborsClassifier(n_neighbors=25, p=1, weights='distance')}
+
+
+*L1 and RL*, RandomForestClassifier
 classes:['L1' 'Reactive Lymphs']
 confusion matrix:
-[[114  24]
- [ 42  75]]
-accuracy by class: [0.74117647 0.74117647]
-average accuracy (balanced, by class): 0.7411764705882353
-precision by class: [0.73076923 0.75757576]
-average precision (balanced, by class): 0.7441724941724941
-sensitivity by class: [0.82608696 0.64102564]
-average sensitivity (balanced, by class): 0.7335562987736901
-specificity by class: [0.64102564 0.82608696]
-average specificity (balanced, by class): 0.7335562987736901
-AUC: 0.8380403815186425
+[[108  30]
+ [ 45  72]]
+ROC AUC: 0.8287501548371115
+accuracy by class: [0.70588235 0.70588235]
+average accuracy (balanced, by class): 0.7058823529411765
+precision by class: [0.70588235 0.70588235]
+average precision (balanced, by class): 0.7058823529411765
+sensitivity by class: [0.7826087  0.61538462]
+average sensitivity (balanced, by class): 0.6989966555183946
+specificity by class: [0.61538462 0.7826087 ]
+average specificity (balanced, by class): 0.6989966555183946
 Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
-Permutation importance using training set:
-	mean accuracy importances: {'Lacunarity': 0.036000000000000025, 'Total Length (microns)': 0.06219607843137258, 'Endpoints': 0.011686274509803958, 'HGU (microns)': 0.00941176470588238, 'Branchpoints': 0.009215686274509837, 'Box-Counting Fractal Dimension': 0.01843137254901964, 'Curvature_50.0': 0.010000000000000033, '% High Density Matrix': 0.08741176470588236, 'Alignment': 0.012000000000000033, 'Branchpoints/Total Length': 0.0450980392156863, 'Endpoints/Total Length': 0.012078431372549043, 'Average Fiber Length': -0.0038039215686274173, 'Average Fiber Thickness': 0.035254901960784346}
-	mean precision importances: {'Lacunarity': 0.023530203459905183, 'Total Length (microns)': 0.06237255486054403, 'Endpoints': 0.01377522689241125, 'HGU (microns)': 0.010237077105194057, 'Branchpoints': 0.008041601443178972, 'Box-Counting Fractal Dimension': 0.016975689357147824, 'Curvature_50.0': 0.010208212975901179, '% High Density Matrix': 0.06512640293943316, 'Alignment': 0.01214229172556329, 'Branchpoints/Total Length': 0.04842439212210452, 'Endpoints/Total Length': 0.012169391447402811, 'Average Fiber Length': -0.0034885024190378956, 'Average Fiber Thickness': 0.024286375921984592}
-	mean sensitivity importances: {'Lacunarity': 0.04235228539576369, 'Total Length (microns)': 0.06491638795986625, 'Endpoints': 0.01051746562616131, 'HGU (microns)': 0.009053325901152017, 'Branchpoints': 0.010081753994797493, 'Box-Counting Fractal Dimension': 0.019857859531772607, 'Curvature_50.0': 0.010175585284280949, '% High Density Matrix': 0.0997370865849127, 'Alignment': 0.012270531400966194, 'Branchpoints/Total Length': 0.04433296172426611, 'Endpoints/Total Length': 0.012342995169082145, 'Average Fiber Length': -0.004288368636194694, 'Average Fiber Thickness': 0.04113712374581941}
-	mean specificity importances: {'Lacunarity': 0.04235228539576369, 'Total Length (microns)': 0.06491638795986625, 'Endpoints': 0.01051746562616131, 'HGU (microns)': 0.009053325901152017, 'Branchpoints': 0.010081753994797493, 'Box-Counting Fractal Dimension': 0.019857859531772607, 'Curvature_50.0': 0.010175585284280949, '% High Density Matrix': 0.0997370865849127, 'Alignment': 0.012270531400966194, 'Branchpoints/Total Length': 0.04433296172426611, 'Endpoints/Total Length': 0.012342995169082145, 'Average Fiber Length': -0.004288368636194694, 'Average Fiber Thickness': 0.04113712374581941}
-Permutation importance using testing set:
-	mean accuracy importances: {'Lacunarity': 0.03741176470588239, 'Total Length (microns)': 0.061960784313725516, 'Endpoints': 0.01082352941176474, 'HGU (microns)': 0.009019607843137295, 'Branchpoints': 0.010039215686274545, 'Box-Counting Fractal Dimension': 0.015019607843137286, 'Curvature_50.0': 0.012235294117647096, '% High Density Matrix': 0.08454901960784315, 'Alignment': 0.01113725490196082, 'Branchpoints/Total Length': 0.04486274509803925, 'Endpoints/Total Length': 0.009254901960784347, 'Average Fiber Length': -0.0005490196078430997, 'Average Fiber Thickness': 0.03356862745098042}
-	mean precision importances: {'Lacunarity': 0.026302575503421258, 'Total Length (microns)': 0.06187208104803054, 'Endpoints': 0.01327870113579989, 'HGU (microns)': 0.009844658611535629, 'Branchpoints': 0.008810151898015282, 'Box-Counting Fractal Dimension': 0.013629051148805603, 'Curvature_50.0': 0.01245900185792704, '% High Density Matrix': 0.06233964319415886, 'Alignment': 0.011317192273487353, 'Branchpoints/Total Length': 0.04796577740373957, 'Endpoints/Total Length': 0.008643549934637626, 'Average Fiber Length': 0.00017331604981819294, 'Average Fiber Thickness': 0.02281757358576023}
-	mean sensitivity importances: {'Lacunarity': 0.043500557413600933, 'Total Length (microns)': 0.06476402824228913, 'Endpoints': 0.009323671497584583, 'HGU (microns)': 0.008736529171311801, 'Branchpoints': 0.010979189892233385, 'Box-Counting Fractal Dimension': 0.016269973987365315, 'Curvature_50.0': 0.012500929022668172, '% High Density Matrix': 0.09660442214790041, 'Alignment': 0.011395392047565966, 'Branchpoints/Total Length': 0.04432367149758457, 'Endpoints/Total Length': 0.009838350055741374, 'Average Fiber Length': -0.0011640654031958063, 'Average Fiber Thickness': 0.039306020066889644}
-	mean specificity importances: {'Lacunarity': 0.043500557413600933, 'Total Length (microns)': 0.06476402824228913, 'Endpoints': 0.009323671497584583, 'HGU (microns)': 0.008736529171311801, 'Branchpoints': 0.010979189892233385, 'Box-Counting Fractal Dimension': 0.016269973987365315, 'Curvature_50.0': 0.012500929022668172, '% High Density Matrix': 0.09660442214790041, 'Alignment': 0.011395392047565966, 'Branchpoints/Total Length': 0.04432367149758457, 'Endpoints/Total Length': 0.009838350055741374, 'Average Fiber Length': -0.0011640654031958063, 'Average Fiber Thickness': 0.039306020066889644}
-Final feature importances (balanced average over all previously reported values):
-	{'Lacunarity': 0.03686877866099226, 'Total Length (microns)': 0.06347029138224793, 'Endpoints': 0.011155750774658954, 'HGU (microns)': 0.009261602301334625, 'Branchpoints': 0.00977856788450505, 'Box-Counting Fractal Dimension': 0.017038923492048275, 'Curvature_50.0': 0.011281942195671697, '% High Density Matrix': 0.08651373098911798, 'Alignment': 0.011741073224759476, 'Branchpoints/Total Length': 0.045458027535408875, 'Endpoints/Total Length': 0.01081362064562761, 'Average Fiber Length': -0.0023216244530589025, 'Average Fiber Thickness': 0.03460172081811596}
 Features in order of final importance:
-	1.    % High Density Matrix               0.08651373098911798
-	2.    Total Length (microns)              0.06347029138224793
-	3.    Branchpoints/Total Length           0.045458027535408875
-	4.    Lacunarity                          0.03686877866099226
-	5.    Average Fiber Thickness             0.03460172081811596
-	6.    Box-Counting Fractal Dimension      0.017038923492048275
-	7.    Alignment                           0.011741073224759476
-	8.    Curvature_50.0                      0.011281942195671697
-	9.    Endpoints                           0.011155750774658954
-	10.   Endpoints/Total Length              0.01081362064562761
-	11.   Branchpoints                        0.00977856788450505
-	12.   HGU (microns)                       0.009261602301334625
-	13.   Average Fiber Length                -0.0023216244530589025
+	1.    % High Density Matrix               0.15657685730584014
+	2.    Lacunarity                          0.13364874436489232
+	3.    Total Length (microns)              0.11604981055185609
+	4.    Average Fiber Thickness             0.11052304392489701
+	5.    Branchpoints/Total Length           0.10660647510679597
+	6.    HGU (microns)                       0.09589942641542994
+	7.    Branchpoints                        0.09112302556972057
+	8.    Endpoints/Total Length              0.08561411336760286
+	9.    Endpoints                           0.08278196180791242
+	10.   Average Fiber Length                0.0786524217666926
+	11.   Box-Counting Fractal Dimension      0.05353330778888295
+	12.   Alignment                           0.044323886979911374
+	13.   Curvature_50.0                      0.04244566221343051
 Model details:
-{'reduce_dim__n_components': None, 'classify__n_estimators': 300, 'classify__min_samples_split': 4, 'classify__max_features': 'log2', 'classify__max_depth': 25, 'classify__bootstrap': True, 'classify': RandomForestClassifier()}
+{'reduce_dim__n_components': None, 'classify__n_estimators': 100, 'classify__min_samples_split': 2, 'classify__min_samples_leaf': 1, 'classify__max_features': 'sqrt', 'classify__max_depth': 10, 'classify__bootstrap': True, 'classify': RandomForestClassifier(max_depth=10, random_state=42)}
 
 
-*L2 and RL*
+*L1 and RL*, KNeighborsClassifier
+classes:['L1' 'Reactive Lymphs']
+confusion matrix:
+[[120  18]
+ [ 47  70]]
+ROC AUC: 0.8302365911061563
+accuracy by class: [0.74509804 0.74509804]
+average accuracy (balanced, by class): 0.7450980392156863
+precision by class: [0.71856287 0.79545455]
+average precision (balanced, by class): 0.7570087098530212
+sensitivity by class: [0.86956522 0.5982906 ]
+average sensitivity (balanced, by class): 0.7339279078409513
+specificity by class: [0.5982906  0.86956522]
+average specificity (balanced, by class): 0.7339279078409513
+Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
+Features in order of final importance:
+	1.    Lacunarity                          0.15141453373444386
+	2.    % High Density Matrix               0.146175352759261
+	3.    Average Fiber Thickness             0.11470462539670784
+	4.    Box-Counting Fractal Dimension      0.1003728542122975
+	5.    Total Length (microns)              0.09729668483378572
+	6.    Curvature_50.0                      0.09611942407646717
+	7.    HGU (microns)                       0.09589047777720969
+	8.    Average Fiber Length                0.09489829062767455
+	9.    Alignment                           0.09403223042622205
+	10.   Branchpoints/Total Length           0.09332328010332182
+	11.   Endpoints/Total Length              0.08517255824732159
+	12.   Endpoints                           0.08255181566388048
+	13.   Branchpoints                        0.08026656314699795
+Model details:
+{'reduce_dim__n_components': 10, 'classify__weights': 'distance', 'classify__p': 1, 'classify__n_neighbors': 25, 'classify': KNeighborsClassifier(n_neighbors=25, p=1, weights='distance')}
+
+
+*L2 and RL*, RandomForestClassifier
 classes:['L2' 'Reactive Lymphs']
 confusion matrix:
-[[137  21]
- [ 25  92]]
-accuracy by class: [0.83272727 0.83272727]
-average accuracy (balanced, by class): 0.8327272727272728
-precision by class: [0.84567901 0.81415929]
-average precision (balanced, by class): 0.8299191521905387
-sensitivity by class: [0.86708861 0.78632479]
-average sensitivity (balanced, by class): 0.8267066969598615
-specificity by class: [0.78632479 0.86708861]
-average specificity (balanced, by class): 0.8267066969598615
-AUC: 0.8823433950016228
+[[143  15]
+ [ 33  84]]
+ROC AUC: 0.889213458833712
+accuracy by class: [0.82545455 0.82545455]
+average accuracy (balanced, by class): 0.8254545454545454
+precision by class: [0.8125     0.84848485]
+average precision (balanced, by class): 0.8304924242424243
+sensitivity by class: [0.90506329 0.71794872]
+average sensitivity (balanced, by class): 0.8115060045439793
+specificity by class: [0.71794872 0.90506329]
+average specificity (balanced, by class): 0.8115060045439793
 Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
-Permutation importance using training set:
-	mean accuracy importances: {'Lacunarity': 0.09476363636363638, 'Total Length (microns)': 0.04978181818181822, 'Endpoints': 0.018472727272727307, 'HGU (microns)': 0.042872727272727305, 'Branchpoints': 0.025381818181818214, 'Box-Counting Fractal Dimension': 0.02254545454545457, 'Curvature_50.0': 0.024690909090909128, '% High Density Matrix': 0.2076727272727273, 'Alignment': 0.026763636363636403, 'Branchpoints/Total Length': 0.061781818181818215, 'Endpoints/Total Length': 0.06021818181818185, 'Average Fiber Length': 0.03189090909090912, 'Average Fiber Thickness': 0.08690909090909091}
-	mean precision importances: {'Lacunarity': 0.09747281911843529, 'Total Length (microns)': 0.03826102022606612, 'Endpoints': 0.015022662250077878, 'HGU (microns)': 0.04410973952919906, 'Branchpoints': 0.017967503202936833, 'Box-Counting Fractal Dimension': 0.020177552391367357, 'Curvature_50.0': 0.025217869392819506, '% High Density Matrix': 0.21395085207328982, 'Alignment': 0.026285086456585605, 'Branchpoints/Total Length': 0.057868136694442115, 'Endpoints/Total Length': 0.061092338924356004, 'Average Fiber Length': 0.032409051608727424, 'Average Fiber Thickness': 0.08548674212290208}
-	mean sensitivity importances: {'Lacunarity': 0.09803797468354432, 'Total Length (microns)': 0.0633392837823218, 'Endpoints': 0.023772043708752612, 'HGU (microns)': 0.04343151574164235, 'Branchpoints': 0.034275938548090454, 'Box-Counting Fractal Dimension': 0.027094558043925163, 'Curvature_50.0': 0.025546088932164892, '% High Density Matrix': 0.21171183598398788, 'Alignment': 0.029534512604132857, 'Branchpoints/Total Length': 0.07136481661798119, 'Endpoints/Total Length': 0.0636276100833063, 'Average Fiber Length': 0.0334198853186195, 'Average Fiber Thickness': 0.09679162609542359}
-	mean specificity importances: {'Lacunarity': 0.09803797468354432, 'Total Length (microns)': 0.0633392837823218, 'Endpoints': 0.023772043708752612, 'HGU (microns)': 0.04343151574164235, 'Branchpoints': 0.034275938548090454, 'Box-Counting Fractal Dimension': 0.027094558043925163, 'Curvature_50.0': 0.025546088932164892, '% High Density Matrix': 0.21171183598398788, 'Alignment': 0.029534512604132857, 'Branchpoints/Total Length': 0.07136481661798119, 'Endpoints/Total Length': 0.0636276100833063, 'Average Fiber Length': 0.0334198853186195, 'Average Fiber Thickness': 0.09679162609542359}
-Permutation importance using testing set:
-	mean accuracy importances: {'Lacunarity': 0.09534545454545458, 'Total Length (microns)': 0.0492727272727273, 'Endpoints': 0.017563636363636392, 'HGU (microns)': 0.04447272727272731, 'Branchpoints': 0.025745454545454582, 'Box-Counting Fractal Dimension': 0.023854545454545482, 'Curvature_50.0': 0.0235636363636364, '% High Density Matrix': 0.2109454545454546, 'Alignment': 0.025709090909090935, 'Branchpoints/Total Length': 0.05945454545454549, 'Endpoints/Total Length': 0.06058181818181823, 'Average Fiber Length': 0.030436363636363664, 'Average Fiber Thickness': 0.08480000000000004}
-	mean precision importances: {'Lacunarity': 0.09803883248089024, 'Total Length (microns)': 0.03826054092911142, 'Endpoints': 0.014101829007109863, 'HGU (microns)': 0.04564462918929366, 'Branchpoints': 0.018225425768516598, 'Box-Counting Fractal Dimension': 0.02135291776910989, 'Curvature_50.0': 0.023895729372106184, '% High Density Matrix': 0.21724676069721094, 'Alignment': 0.02506111078786469, 'Branchpoints/Total Length': 0.05542283781810278, 'Endpoints/Total Length': 0.061535809733180555, 'Average Fiber Length': 0.030813352471700712, 'Average Fiber Thickness': 0.08351570973446004}
-	mean sensitivity importances: {'Lacunarity': 0.0986108406361571, 'Total Length (microns)': 0.062474845829276225, 'Endpoints': 0.02281456237152443, 'HGU (microns)': 0.04530076814886943, 'Branchpoints': 0.03471437844855569, 'Box-Counting Fractal Dimension': 0.028688466947960647, 'Curvature_50.0': 0.024642702585740563, '% High Density Matrix': 0.2147595477658769, 'Alignment': 0.02860570161203073, 'Branchpoints/Total Length': 0.06894027913015256, 'Endpoints/Total Length': 0.06373336579032783, 'Average Fiber Length': 0.03205425727577627, 'Average Fiber Thickness': 0.09426863572433193}
-	mean specificity importances: {'Lacunarity': 0.0986108406361571, 'Total Length (microns)': 0.062474845829276225, 'Endpoints': 0.02281456237152443, 'HGU (microns)': 0.04530076814886943, 'Branchpoints': 0.03471437844855569, 'Box-Counting Fractal Dimension': 0.028688466947960647, 'Curvature_50.0': 0.024642702585740563, '% High Density Matrix': 0.2147595477658769, 'Alignment': 0.02860570161203073, 'Branchpoints/Total Length': 0.06894027913015256, 'Endpoints/Total Length': 0.06373336579032783, 'Average Fiber Length': 0.03205425727577627, 'Average Fiber Thickness': 0.09426863572433193}
-Final feature importances (balanced average over all previously reported values):
-	{'Lacunarity': 0.09736479664347741, 'Total Length (microns)': 0.05340054572911488, 'Endpoints': 0.01979175838176319, 'HGU (microns)': 0.044320548880621355, 'Branchpoints': 0.028162604461502313, 'Box-Counting Fractal Dimension': 0.024937065018031116, 'Curvature_50.0': 0.024718215906910264, '% High Density Matrix': 0.21284482026105156, 'Alignment': 0.027512419118688104, 'Branchpoints/Total Length': 0.06439219120564701, 'Endpoints/Total Length': 0.06226876255060062, 'Average Fiber Length': 0.03206224524956156, 'Average Fiber Thickness': 0.09035400830074553}
 Features in order of final importance:
-	1.    % High Density Matrix               0.21284482026105156
-	2.    Lacunarity                          0.09736479664347741
-	3.    Average Fiber Thickness             0.09035400830074553
-	4.    Branchpoints/Total Length           0.06439219120564701
-	5.    Endpoints/Total Length              0.06226876255060062
-	6.    Total Length (microns)              0.05340054572911488
-	7.    HGU (microns)                       0.044320548880621355
-	8.    Average Fiber Length                0.03206224524956156
-	9.    Branchpoints                        0.028162604461502313
-	10.   Alignment                           0.027512419118688104
-	11.   Box-Counting Fractal Dimension      0.024937065018031116
-	12.   Curvature_50.0                      0.024718215906910264
-	13.   Endpoints                           0.01979175838176319
+	1.    % High Density Matrix               0.2787179315556121
+	2.    Lacunarity                          0.132427504784777
+	3.    Average Fiber Thickness             0.12117076450759003
+	4.    Total Length (microns)              0.10765035239679692
+	5.    Branchpoints/Total Length           0.10226041237282794
+	6.    Endpoints/Total Length              0.1018107448733562
+	7.    HGU (microns)                       0.09722426857592736
+	8.    Box-Counting Fractal Dimension      0.08843870637015078
+	9.    Endpoints                           0.08632194073451568
+	10.   Average Fiber Length                0.07874806226425005
+	11.   Branchpoints                        0.07440526262918422
+	12.   Curvature_50.0                      0.05422763373858229
+	13.   Alignment                           0.04291120904903749
 Model details:
-{'reduce_dim__n_components': None, 'classify__n_estimators': 100, 'classify__min_samples_split': 3, 'classify__max_features': 'sqrt', 'classify__max_depth': 10, 'classify__bootstrap': True, 'classify': RandomForestClassifier()}
+{'reduce_dim__n_components': None, 'classify__n_estimators': 200, 'classify__min_samples_split': 4, 'classify__min_samples_leaf': 2, 'classify__max_features': 'log2', 'classify__max_depth': 10, 'classify__bootstrap': True, 'classify': RandomForestClassifier(max_depth=10, max_features='log2', min_samples_leaf=2,
+                       min_samples_split=4, n_estimators=200, random_state=42)}
 
 
-*L3 and RL*
+*L2 and RL*, KNeighborsClassifier
+classes:['L2' 'Reactive Lymphs']
+confusion matrix:
+[[147  11]
+ [ 45  72]]
+ROC AUC: 0.8763929460131992
+accuracy by class: [0.79636364 0.79636364]
+average accuracy (balanced, by class): 0.7963636363636364
+precision by class: [0.765625   0.86746988]
+average precision (balanced, by class): 0.8165474397590362
+sensitivity by class: [0.93037975 0.61538462]
+average sensitivity (balanced, by class): 0.7728821811100293
+specificity by class: [0.61538462 0.93037975]
+average specificity (balanced, by class): 0.7728821811100293
+Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
+Features in order of final importance:
+	1.    % High Density Matrix               0.1754956440921015
+	2.    Average Fiber Thickness             0.10866731965940331
+	3.    Lacunarity                          0.1004823012025578
+	4.    Total Length (microns)              0.0919050298527889
+	5.    HGU (microns)                       0.09167827351046152
+	6.    Box-Counting Fractal Dimension      0.08589747424690497
+	7.    Curvature_50.0                      0.08216242067040767
+	8.    Endpoints/Total Length              0.08209371868144777
+	9.    Branchpoints/Total Length           0.07884391261259732
+	10.   Branchpoints                        0.07779914315114113
+	11.   Endpoints                           0.07709956725482756
+	12.   Average Fiber Length                0.07648193683758046
+	13.   Alignment                           0.07043532739626271
+Model details:
+{'reduce_dim__n_components': None, 'classify__weights': 'distance', 'classify__p': 1.5, 'classify__n_neighbors': 15, 'classify': KNeighborsClassifier(n_neighbors=15, p=1.5, weights='distance')}
+
+
+*L3 and RL*, RandomForestClassifier
 classes:['L3' 'Reactive Lymphs']
 confusion matrix:
-[[101  20]
- [ 18  99]]
-accuracy by class: [0.84033613 0.84033613]
-average accuracy (balanced, by class): 0.8403361344537815
-precision by class: [0.8487395  0.83193277]
-average precision (balanced, by class): 0.8403361344537815
-sensitivity by class: [0.83471074 0.84615385]
-average sensitivity (balanced, by class): 0.8404322949777495
-specificity by class: [0.84615385 0.83471074]
-average specificity (balanced, by class): 0.8404322949777495
-AUC: 0.9021685385321749
+[[94 27]
+ [18 99]]
+ROC AUC: 0.8901603447057993
+accuracy by class: [0.81092437 0.81092437]
+average accuracy (balanced, by class): 0.8109243697478992
+precision by class: [0.83928571 0.78571429]
+average precision (balanced, by class): 0.8125
+sensitivity by class: [0.7768595  0.84615385]
+average sensitivity (balanced, by class): 0.8115066751430388
+specificity by class: [0.84615385 0.7768595 ]
+average specificity (balanced, by class): 0.8115066751430388
 Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
-Permutation importance using training set:
-	mean accuracy importances: {'Lacunarity': 0.13176470588235292, 'Total Length (microns)': 0.03428571428571429, 'Endpoints': 0.0158403361344538, 'HGU (microns)': 0.0169747899159664, 'Branchpoints': 0.0292436974789916, 'Box-Counting Fractal Dimension': 0.020504201680672282, 'Curvature_50.0': 0.003823529411764722, '% High Density Matrix': 0.09634453781512604, 'Alignment': -0.003445378151260492, 'Branchpoints/Total Length': 0.008487394957983207, 'Endpoints/Total Length': 0.0050420168067227015, 'Average Fiber Length': -0.0017226890756302383, 'Average Fiber Thickness': 0.002773109243697497}
-	mean precision importances: {'Lacunarity': 0.1315030420144708, 'Total Length (microns)': 0.033991257889574245, 'Endpoints': 0.01555349337383665, 'HGU (microns)': 0.01621975662263624, 'Branchpoints': 0.028969309711255636, 'Box-Counting Fractal Dimension': 0.020299045519396274, 'Curvature_50.0': 0.0037348300844285576, '% High Density Matrix': 0.09519197487789793, 'Alignment': -0.0036531251210644, 'Branchpoints/Total Length': 0.008409269844253558, 'Endpoints/Total Length': 0.004909855593707785, 'Average Fiber Length': -0.001810819703636265, 'Average Fiber Thickness': 0.0026467687230152083}
-	mean sensitivity importances: {'Lacunarity': 0.13216218125309034, 'Total Length (microns)': 0.03426855972310517, 'Endpoints': 0.015787596242141676, 'HGU (microns)': 0.01673659673659672, 'Branchpoints': 0.029261849261849254, 'Box-Counting Fractal Dimension': 0.02068234795507521, 'Curvature_50.0': 0.0038917143462597835, '% High Density Matrix': 0.0970322102140284, 'Alignment': -0.003504273504273516, 'Branchpoints/Total Length': 0.008667796849615012, 'Endpoints/Total Length': 0.0050335523062795574, 'Average Fiber Length': -0.0016786748604930611, 'Average Fiber Thickness': 0.0027682418591509317}
-	mean specificity importances: {'Lacunarity': 0.13216218125309034, 'Total Length (microns)': 0.03426855972310517, 'Endpoints': 0.015787596242141676, 'HGU (microns)': 0.01673659673659672, 'Branchpoints': 0.029261849261849254, 'Box-Counting Fractal Dimension': 0.02068234795507521, 'Curvature_50.0': 0.0038917143462597835, '% High Density Matrix': 0.0970322102140284, 'Alignment': -0.003504273504273516, 'Branchpoints/Total Length': 0.008667796849615012, 'Endpoints/Total Length': 0.0050335523062795574, 'Average Fiber Length': -0.0016786748604930611, 'Average Fiber Thickness': 0.0027682418591509317}
-Permutation importance using testing set:
-	mean accuracy importances: {'Lacunarity': 0.13037815126050417, 'Total Length (microns)': 0.031722689075630264, 'Endpoints': 0.016470588235294136, 'HGU (microns)': 0.017394957983193297, 'Branchpoints': 0.029873949579831943, 'Box-Counting Fractal Dimension': 0.024957983193277324, 'Curvature_50.0': 0.005504201680672283, '% High Density Matrix': 0.0985294117647059, 'Alignment': -0.0012184873949579666, 'Branchpoints/Total Length': 0.008991596638655478, 'Endpoints/Total Length': 0.0049159663865546285, 'Average Fiber Length': -0.002773109243697466, 'Average Fiber Thickness': 0.002436974789915982}
-	mean precision importances: {'Lacunarity': 0.13007632126236202, 'Total Length (microns)': 0.03144420421987168, 'Endpoints': 0.016197409197543547, 'HGU (microns)': 0.01648290972001466, 'Branchpoints': 0.029645044709700075, 'Box-Counting Fractal Dimension': 0.024663441618902045, 'Curvature_50.0': 0.005422473294644504, '% High Density Matrix': 0.09722830682687343, 'Alignment': -0.001511504938268462, 'Branchpoints/Total Length': 0.008917406735025352, 'Endpoints/Total Length': 0.004787778677120372, 'Average Fiber Length': -0.0028689142502714192, 'Average Fiber Thickness': 0.0023172461698907233}
-	mean sensitivity importances: {'Lacunarity': 0.13080137034682487, 'Total Length (microns)': 0.03170692943420215, 'Endpoints': 0.0164102564102564, 'HGU (microns)': 0.017110263473899826, 'Branchpoints': 0.029866143957053035, 'Box-Counting Fractal Dimension': 0.025169880624426065, 'Curvature_50.0': 0.005557321466412354, '% High Density Matrix': 0.09925160697887969, 'Alignment': -0.001307127216218139, 'Branchpoints/Total Length': 0.009162251889524586, 'Endpoints/Total Length': 0.0049095853641308055, 'Average Fiber Length': -0.0027512891149255, 'Average Fiber Thickness': 0.0024715688352051845}
-	mean specificity importances: {'Lacunarity': 0.13080137034682487, 'Total Length (microns)': 0.03170692943420215, 'Endpoints': 0.0164102564102564, 'HGU (microns)': 0.017110263473899826, 'Branchpoints': 0.029866143957053035, 'Box-Counting Fractal Dimension': 0.025169880624426065, 'Curvature_50.0': 0.005557321466412354, '% High Density Matrix': 0.09925160697887969, 'Alignment': -0.001307127216218139, 'Branchpoints/Total Length': 0.009162251889524586, 'Endpoints/Total Length': 0.0049095853641308055, 'Average Fiber Length': -0.0027512891149255, 'Average Fiber Thickness': 0.0024715688352051845}
-Final feature importances (balanced average over all previously reported values):
-	{'Lacunarity': 0.13120616545244004, 'Total Length (microns)': 0.03292435547317564, 'Endpoints': 0.016057191530740537, 'HGU (microns)': 0.01684576683285046, 'Branchpoints': 0.02949849848969798, 'Box-Counting Fractal Dimension': 0.02276614114640631, 'Curvature_50.0': 0.004672888262106793, '% High Density Matrix': 0.09748273320880244, 'Alignment': -0.0024314121308168287, 'Branchpoints/Total Length': 0.0088082207067746, 'Endpoints/Total Length': 0.004942736600615776, 'Average Fiber Length': -0.0022544325280090638, 'Average Fiber Thickness': 0.002581715039403955}
 Features in order of final importance:
-	1.    Lacunarity                          0.13120616545244004
-	2.    % High Density Matrix               0.09748273320880244
-	3.    Total Length (microns)              0.03292435547317564
-	4.    Branchpoints                        0.02949849848969798
-	5.    Box-Counting Fractal Dimension      0.02276614114640631
-	6.    HGU (microns)                       0.01684576683285046
-	7.    Endpoints                           0.016057191530740537
-	8.    Branchpoints/Total Length           0.0088082207067746
-	9.    Endpoints/Total Length              0.004942736600615776
-	10.   Curvature_50.0                      0.004672888262106793
-	11.   Average Fiber Thickness             0.002581715039403955
-	12.   Average Fiber Length                -0.0022544325280090638
-	13.   Alignment                           -0.0024314121308168287
+	1.    % High Density Matrix               0.1564477633824072
+	2.    Lacunarity                          0.15201227313963098
+	3.    Total Length (microns)              0.08299721146389624
+	4.    Endpoints                           0.05778379677462859
+	5.    Branchpoints                        0.05738868933103798
+	6.    Box-Counting Fractal Dimension      0.05478714171092165
+	7.    HGU (microns)                       0.04919692225986033
+	8.    Average Fiber Length                0.04259289346188351
+	9.    Endpoints/Total Length              0.04030259962092072
+	10.   Average Fiber Thickness             0.03499359628726657
+	11.   Curvature_50.0                      0.0349280419382675
+	12.   Branchpoints/Total Length           0.03411128465773728
+	13.   Alignment                           0.029109435306308783
 Model details:
-{'reduce_dim__n_components': 8, 'classify__n_estimators': 30, 'classify__min_samples_split': 4, 'classify__max_features': 'sqrt', 'classify__max_depth': 10, 'classify__bootstrap': True, 'classify': RandomForestClassifier()}
+{'reduce_dim__n_components': 10, 'classify__n_estimators': 300, 'classify__min_samples_split': 3, 'classify__min_samples_leaf': 2, 'classify__max_features': 'log2', 'classify__max_depth': 30, 'classify__bootstrap': True, 'classify': RandomForestClassifier(max_depth=30, max_features='log2', min_samples_leaf=2,
+                       min_samples_split=3, n_estimators=300, random_state=42)}
 
 
-*L1 and L2 and RL*
-classes:['L1' 'L2' 'Reactive Lymphs']
+*L3 and RL*, KNeighborsClassifier
+classes:['L3' 'Reactive Lymphs']
 confusion matrix:
-[[105  18  15]
- [ 19 120  19]
- [ 35  26  56]]
-accuracy by class: [0.78934625 0.80145278 0.76997579]
-average accuracy (balanced, by class): 0.7869249394673123
-precision by class: [0.66037736 0.73170732 0.62222222]
-average precision (balanced, by class): 0.6714356325953196
-sensitivity by class: [0.76086957 0.75949367 0.47863248]
-average sensitivity (balanced, by class): 0.666331904911982
-specificity by class: [0.80363636 0.82745098 0.88513514]
-average specificity (balanced, by class): 0.8387408263878852
-AUC (OVO): 0.8496367338437602
-AUC (OVR): 0.8531127025156454
-Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
-Permutation importance using training set:
-	mean accuracy importances: {'Lacunarity': 0.03614205004035511, 'Total Length (microns)': 0.022598870056497175, 'Endpoints': -0.002453591606133989, 'HGU (microns)': 0.014576271186440688, 'Branchpoints': 0.0037126715092816952, 'Box-Counting Fractal Dimension': 0.007037933817594848, 'Curvature_50.0': -0.004697336561743353, '% High Density Matrix': 0.08072639225181596, 'Alignment': -0.005601291364003241, 'Branchpoints/Total Length': 0.008523002421307515, 'Endpoints/Total Length': 0.00841000807102504, 'Average Fiber Length': -0.005617433414043598, 'Average Fiber Thickness': 0.07762711864406778}
-	mean precision importances: {'Lacunarity': 0.05233954935892959, 'Total Length (microns)': 0.03180928730798369, 'Endpoints': -0.006376551787311118, 'HGU (microns)': 0.02477265298524115, 'Branchpoints': 0.003616992446489904, 'Box-Counting Fractal Dimension': 0.01241593155699587, 'Curvature_50.0': -0.005464998878923214, '% High Density Matrix': 0.14931463714407184, 'Alignment': -0.00731021514730831, 'Branchpoints/Total Length': 0.015269526244449893, 'Endpoints/Total Length': 0.015069440234717535, 'Average Fiber Length': -0.012643512923514033, 'Average Fiber Thickness': 0.10519806268065024}
-	mean sensitivity importances: {'Lacunarity': 0.058096067999755446, 'Total Length (microns)': 0.039486364142390616, 'Endpoints': -0.00191174833442302, 'HGU (microns)': 0.02085299176658565, 'Branchpoints': 0.007203053779828734, 'Box-Counting Fractal Dimension': 0.01310426848676717, 'Curvature_50.0': -0.0052145297577328035, '% High Density Matrix': 0.1317217337993343, 'Alignment': -0.0069587247380312675, 'Branchpoints/Total Length': 0.015232561421334178, 'Endpoints/Total Length': 0.013727999410443044, 'Average Fiber Length': -0.008852974518907325, 'Average Fiber Thickness': 0.1167847505436939}
-	mean specificity importances: {'Lacunarity': 0.02809878996643697, 'Total Length (microns)': 0.01918886640651342, 'Endpoints': -0.0011672552231376165, 'HGU (microns)': 0.010157640795876045, 'Branchpoints': 0.003487474105121123, 'Box-Counting Fractal Dimension': 0.005568546353840419, 'Curvature_50.0': -0.0036144280644281224, '% High Density Matrix': 0.06341178237060585, 'Alignment': -0.004261271699507044, 'Branchpoints/Total Length': 0.006632073517367582, 'Endpoints/Total Length': 0.006354769475357668, 'Average Fiber Length': -0.004532468564821552, 'Average Fiber Thickness': 0.06163964526023344}
-Permutation importance using testing set:
-	mean accuracy importances: {'Lacunarity': 0.03631961259079902, 'Total Length (microns)': 0.02146892655367231, 'Endpoints': -0.002598870056497181, 'HGU (microns)': 0.015125100887812755, 'Branchpoints': 0.0033414043583535192, 'Box-Counting Fractal Dimension': 0.0069572235673930685, 'Curvature_50.0': -0.005665859564164657, '% High Density Matrix': 0.08351896690879741, 'Alignment': -0.005117029862792587, 'Branchpoints/Total Length': 0.009233252623083143, 'Endpoints/Total Length': 0.010072639225181616, 'Average Fiber Length': -0.005907990314769985, 'Average Fiber Thickness': 0.07849878934624697}
-	mean precision importances: {'Lacunarity': 0.05209762196536442, 'Total Length (microns)': 0.03036690818418435, 'Endpoints': -0.007107331129947754, 'HGU (microns)': 0.025406309577028198, 'Branchpoints': 0.002428741805888286, 'Box-Counting Fractal Dimension': 0.011847845154398455, 'Curvature_50.0': -0.007392549938342663, '% High Density Matrix': 0.15431238254813212, 'Alignment': -0.006799140240108372, 'Branchpoints/Total Length': 0.016517058340465383, 'Endpoints/Total Length': 0.01763147329999332, 'Average Fiber Length': -0.013178350664305389, 'Average Fiber Thickness': 0.10640950298581169}
-	mean sensitivity importances: {'Lacunarity': 0.05806933409850313, 'Total Length (microns)': 0.03756987269645504, 'Endpoints': -0.0020235838480196877, 'HGU (microns)': 0.021803393715886868, 'Branchpoints': 0.006446609812047397, 'Box-Counting Fractal Dimension': 0.012989610625824221, 'Curvature_50.0': -0.006691691479803714, '% High Density Matrix': 0.1356555999291278, 'Alignment': -0.006321250550749691, 'Branchpoints/Total Length': 0.016469510024821027, 'Endpoints/Total Length': 0.016203511627287132, 'Average Fiber Length': -0.009417091194746624, 'Average Fiber Thickness': 0.11817256929254732}
-	mean specificity importances: {'Lacunarity': 0.028222754572754534, 'Total Length (microns)': 0.018241968171379894, 'Endpoints': -0.001210307366189769, 'HGU (microns)': 0.010568539127362608, 'Branchpoints': 0.0031972266384030657, 'Box-Counting Fractal Dimension': 0.0055365434953669815, 'Curvature_50.0': -0.004279555491320245, '% High Density Matrix': 0.06537654445889735, 'Alignment': -0.003858160299336811, 'Branchpoints/Total Length': 0.007188179891121022, 'Endpoints/Total Length': 0.007551246968893984, 'Average Fiber Length': -0.004727246230187436, 'Average Fiber Thickness': 0.06229953188482596}
-Final feature importances (balanced average over all previously reported values):
-	{'Lacunarity': 0.043673222574112276, 'Total Length (microns)': 0.027591382939884564, 'Endpoints': -0.003106154918957517, 'HGU (microns)': 0.017907862505279246, 'Branchpoints': 0.004179271806926716, 'Box-Counting Fractal Dimension': 0.00943223788227263, 'Curvature_50.0': -0.005377618717057347, '% High Density Matrix': 0.10800475492634784, 'Alignment': -0.005778385487729665, 'Branchpoints/Total Length': 0.011883145560493719, 'Endpoints/Total Length': 0.011877636039112419, 'Average Fiber Length': -0.00810963347816199, 'Average Fiber Thickness': 0.09082874632975967}
-Features in order of final importance:
-	1.    % High Density Matrix               0.10800475492634784
-	2.    Average Fiber Thickness             0.09082874632975967
-	3.    Lacunarity                          0.043673222574112276
-	4.    Total Length (microns)              0.027591382939884564
-	5.    HGU (microns)                       0.017907862505279246
-	6.    Branchpoints/Total Length           0.011883145560493719
-	7.    Endpoints/Total Length              0.011877636039112419
-	8.    Box-Counting Fractal Dimension      0.00943223788227263
-	9.    Branchpoints                        0.004179271806926716
-	10.   Endpoints                           -0.003106154918957517
-	11.   Curvature_50.0                      -0.005377618717057347
-	12.   Alignment                           -0.005778385487729665
-	13.   Average Fiber Length                -0.00810963347816199
-Model details:
-{'reduce_dim__n_components': None, 'classify__n_estimators': 300, 'classify__min_samples_split': 3, 'classify__max_features': 'sqrt', 'classify__max_depth': 25, 'classify__bootstrap': True, 'classify': RandomForestClassifier()}
-
-
-*Monoblast and RL*
-classes:['Monoblasts' 'Reactive Lymphs']
-confusion matrix:
-[[98 24]
- [22 94]]
+[[95 26]
+ [20 97]]
+ROC AUC: 0.8831320194956559
 accuracy by class: [0.80672269 0.80672269]
 average accuracy (balanced, by class): 0.8067226890756303
-precision by class: [0.81666667 0.79661017]
-average precision (balanced, by class): 0.806638418079096
-sensitivity by class: [0.80327869 0.81034483]
-average sensitivity (balanced, by class): 0.8068117580553985
-specificity by class: [0.81034483 0.80327869]
-average specificity (balanced, by class): 0.8068117580553985
-AUC: 0.8942552289429055
+precision by class: [0.82608696 0.78861789]
+average precision (balanced, by class): 0.8073524213503005
+sensitivity by class: [0.78512397 0.82905983]
+average sensitivity (balanced, by class): 0.8070918980009889
+specificity by class: [0.82905983 0.78512397]
+average specificity (balanced, by class): 0.8070918980009889
 Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
-Permutation importance using training set:
-	mean accuracy importances: {'Lacunarity': 0.04781512605042018, 'Total Length (microns)': 0.2376470588235295, 'Endpoints': 0.08777310924369748, 'HGU (microns)': 0.060168067226890776, 'Branchpoints': 0.05386554621848741, 'Box-Counting Fractal Dimension': 0.01411764705882355, 'Curvature_50.0': -0.00659663865546216, '% High Density Matrix': 0.07915966386554622, 'Alignment': -0.0076890756302520746, 'Branchpoints/Total Length': 0.07836134453781513, 'Endpoints/Total Length': 0.09542016806722689, 'Average Fiber Length': 0.012815126050420183, 'Average Fiber Thickness': 0.05357142857142858}
-	mean precision importances: {'Lacunarity': 0.04754010619575706, 'Total Length (microns)': 0.22822623770449377, 'Endpoints': 0.07180045172843348, 'HGU (microns)': 0.057235456358336344, 'Branchpoints': 0.03882565816143536, 'Box-Counting Fractal Dimension': 0.01108488634515545, 'Curvature_50.0': -0.006665763280154172, '% High Density Matrix': 0.07886103138844704, 'Alignment': -0.007823040205066654, 'Branchpoints/Total Length': 0.07110943990785012, 'Endpoints/Total Length': 0.08278574530362107, 'Average Fiber Length': 0.011702974201452467, 'Average Fiber Thickness': 0.04021062290068515}
-	mean sensitivity importances: {'Lacunarity': 0.04786885245901638, 'Total Length (microns)': 0.23424745618993775, 'Endpoints': 0.08479649519502543, 'HGU (microns)': 0.059120972300734854, 'Branchpoints': 0.05111644997173543, 'Box-Counting Fractal Dimension': 0.013068824194460142, 'Curvature_50.0': -0.006523459581684595, '% High Density Matrix': 0.07958945732052004, 'Alignment': -0.0076929055963821545, 'Branchpoints/Total Length': 0.07644290559638213, 'Endpoints/Total Length': 0.0927557942340305, 'Average Fiber Length': 0.01230709440361784, 'Average Fiber Thickness': 0.05100339174674956}
-	mean specificity importances: {'Lacunarity': 0.04786885245901638, 'Total Length (microns)': 0.23424745618993775, 'Endpoints': 0.08479649519502543, 'HGU (microns)': 0.059120972300734854, 'Branchpoints': 0.05111644997173543, 'Box-Counting Fractal Dimension': 0.013068824194460142, 'Curvature_50.0': -0.006523459581684595, '% High Density Matrix': 0.07958945732052004, 'Alignment': -0.0076929055963821545, 'Branchpoints/Total Length': 0.07644290559638213, 'Endpoints/Total Length': 0.0927557942340305, 'Average Fiber Length': 0.01230709440361784, 'Average Fiber Thickness': 0.05100339174674956}
-Permutation importance using testing set:
-	mean accuracy importances: {'Lacunarity': 0.053529411764705895, 'Total Length (microns)': 0.23365546218487399, 'Endpoints': 0.08798319327731093, 'HGU (microns)': 0.05861344537815127, 'Branchpoints': 0.05130252100840337, 'Box-Counting Fractal Dimension': 0.011386554621848762, 'Curvature_50.0': -0.005924369747899139, '% High Density Matrix': 0.08247899159663868, 'Alignment': -0.007268907563025185, 'Branchpoints/Total Length': 0.07974789915966388, 'Endpoints/Total Length': 0.08991596638655462, 'Average Fiber Length': 0.013025210084033638, 'Average Fiber Thickness': 0.04894957983193278}
-	mean precision importances: {'Lacunarity': 0.05325704309631673, 'Total Length (microns)': 0.22403803118138754, 'Endpoints': 0.07153942695336898, 'HGU (microns)': 0.05577814536285558, 'Branchpoints': 0.03633571777110528, 'Box-Counting Fractal Dimension': 0.008184082925266269, 'Curvature_50.0': -0.005963866508548203, '% High Density Matrix': 0.08230434721892763, 'Alignment': -0.007368107096448362, 'Branchpoints/Total Length': 0.07226525307400126, 'Endpoints/Total Length': 0.07718425011583108, 'Average Fiber Length': 0.011934458523018993, 'Average Fiber Thickness': 0.035663400439033675}
-	mean sensitivity importances: {'Lacunarity': 0.053571933295647224, 'Total Length (microns)': 0.23028617863199544, 'Endpoints': 0.08495265686828715, 'HGU (microns)': 0.057574901074053136, 'Branchpoints': 0.048571933295647234, 'Box-Counting Fractal Dimension': 0.010281938948558495, 'Curvature_50.0': -0.005838044092707775, '% High Density Matrix': 0.08285260033917466, 'Alignment': -0.0072639909553420335, 'Branchpoints/Total Length': 0.07781656302996041, 'Endpoints/Total Length': 0.08726187111362348, 'Average Fiber Length': 0.012505652911249285, 'Average Fiber Thickness': 0.04640404183154323}
-	mean specificity importances: {'Lacunarity': 0.053571933295647224, 'Total Length (microns)': 0.23028617863199544, 'Endpoints': 0.08495265686828715, 'HGU (microns)': 0.057574901074053136, 'Branchpoints': 0.048571933295647234, 'Box-Counting Fractal Dimension': 0.010281938948558495, 'Curvature_50.0': -0.005838044092707775, '% High Density Matrix': 0.08285260033917466, 'Alignment': -0.0072639909553420335, 'Branchpoints/Total Length': 0.07781656302996041, 'Endpoints/Total Length': 0.08726187111362348, 'Average Fiber Length': 0.012505652911249285, 'Average Fiber Thickness': 0.04640404183154323}
-Final feature importances (balanced average over all previously reported values):
-	{'Lacunarity': 0.05062790732706589, 'Total Length (microns)': 0.23157925744226887, 'Endpoints': 0.0823243106661795, 'HGU (microns)': 0.05814835763447625, 'Branchpoints': 0.0474632762117746, 'Box-Counting Fractal Dimension': 0.011434337154641414, 'Curvature_50.0': -0.006234205692606051, '% High Density Matrix': 0.08096101867361861, 'Alignment': -0.007507865449780081, 'Branchpoints/Total Length': 0.07625035924150193, 'Endpoints/Total Length': 0.08816768257106772, 'Average Fiber Length': 0.012387907936082443, 'Average Fiber Thickness': 0.04665123736245822}
 Features in order of final importance:
-	1.    Total Length (microns)              0.23157925744226887
-	2.    Endpoints/Total Length              0.08816768257106772
-	3.    Endpoints                           0.0823243106661795
-	4.    % High Density Matrix               0.08096101867361861
-	5.    Branchpoints/Total Length           0.07625035924150193
-	6.    HGU (microns)                       0.05814835763447625
-	7.    Lacunarity                          0.05062790732706589
-	8.    Branchpoints                        0.0474632762117746
-	9.    Average Fiber Thickness             0.04665123736245822
-	10.   Average Fiber Length                0.012387907936082443
-	11.   Box-Counting Fractal Dimension      0.011434337154641414
-	12.   Curvature_50.0                      -0.006234205692606051
-	13.   Alignment                           -0.007507865449780081
+	1.    % High Density Matrix               0.07437144365647971
+	2.    Lacunarity                          0.06721173608776244
+	3.    Total Length (microns)              0.02572848885046393
+	4.    HGU (microns)                       0.021741887377248168
+	5.    Branchpoints                        0.019518191295380242
+	6.    Box-Counting Fractal Dimension      0.015561369135432997
+	7.    Endpoints                           0.012045697701568244
+	8.    Branchpoints/Total Length           0.008845707741422985
+	9.    Average Fiber Length                0.008701400383496503
+	10.   Average Fiber Thickness             0.008130862925703126
+	11.   Curvature_50.0                      0.005962724787617522
+	12.   Endpoints/Total Length              0.0048983352987481245
+	13.   Alignment                           0.003289357706733675
 Model details:
-{'reduce_dim__n_components': None, 'classify__n_estimators': 300, 'classify__min_samples_split': 2, 'classify__max_features': None, 'classify__max_depth': 25, 'classify__bootstrap': True, 'classify': RandomForestClassifier()}
+{'reduce_dim__n_components': 10, 'classify__weights': 'uniform', 'classify__p': 1, 'classify__n_neighbors': 15, 'classify': KNeighborsClassifier(n_neighbors=15, p=1)}
 
 
-*Myeloblast and RL*
+*L1 and L2 and RL*, RandomForestClassifier
+classes:['L1' 'L2' 'Reactive Lymphs']
+confusion matrix:
+[[103  21  14]
+ [ 15 127  16]
+ [ 33  20  64]]
+ROC AUC (OVO): 0.8551544555718102
+ROC AUC (OVR): 0.8590001437649467
+accuracy by class: [0.79903148 0.82566586 0.79903148]
+average accuracy (balanced, by class): 0.8079096045197739
+precision by class: [0.68211921 0.75595238 0.68085106]
+average precision (balanced, by class): 0.7063075500267272
+sensitivity by class: [0.74637681 0.80379747 0.54700855]
+average sensitivity (balanced, by class): 0.69906094231906
+specificity by class: [0.82545455 0.83921569 0.89864865]
+average specificity (balanced, by class): 0.8544396267925679
+Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
+Features in order of final importance:
+	1.    % High Density Matrix               0.12305907678240234
+	2.    Total Length (microns)              0.09316426227136902
+	3.    Average Fiber Thickness             0.09281075430565468
+	4.    Lacunarity                          0.09108273203395116
+	5.    HGU (microns)                       0.07248164006479293
+	6.    Box-Counting Fractal Dimension      0.06712193951582827
+	7.    Branchpoints/Total Length           0.06081644999227612
+	8.    Average Fiber Length                0.05616432867026467
+	9.    Endpoints                           0.05614678158246929
+	10.   Endpoints/Total Length              0.05346596884014841
+	11.   Branchpoints                        0.052919600722366636
+	12.   Curvature_50.0                      0.04460936302478645
+	13.   Alignment                           0.03220333191490762
+Model details:
+{'reduce_dim__n_components': 10, 'classify__n_estimators': 200, 'classify__min_samples_split': 2, 'classify__min_samples_leaf': 2, 'classify__max_features': 'log2', 'classify__max_depth': None, 'classify__bootstrap': True, 'classify': RandomForestClassifier(max_features='log2', min_samples_leaf=2,
+                       n_estimators=200, random_state=42)}
+
+
+*L1 and L2 and RL*, KNeighborsClassifier
+classes:['L1' 'L2' 'Reactive Lymphs']
+confusion matrix:
+[[ 98  27  13]
+ [ 15 126  17]
+ [ 40  32  45]]
+ROC AUC (OVO): 0.8270745167644818
+ROC AUC (OVR): 0.8318267410943605
+accuracy by class: [0.76997579 0.77966102 0.75302663]
+average accuracy (balanced, by class): 0.7675544794188863
+precision by class: [0.64052288 0.68108108 0.6       ]
+average precision (balanced, by class): 0.6405346522993582
+sensitivity by class: [0.71014493 0.79746835 0.38461538]
+average sensitivity (balanced, by class): 0.6307428888606654
+specificity by class: [0.8        0.76862745 0.89864865]
+average specificity (balanced, by class): 0.8224253665430137
+Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
+Features in order of final importance:
+	1.    % High Density Matrix               0.10378951316997181
+	2.    Lacunarity                          0.08434863837566209
+	3.    Average Fiber Thickness             0.07305666438897651
+	4.    Total Length (microns)              0.07015865966498296
+	5.    Branchpoints/Total Length           0.06128048336946104
+	6.    HGU (microns)                       0.06077208236770997
+	7.    Box-Counting Fractal Dimension      0.05754774254151877
+	8.    Branchpoints                        0.05625614580259479
+	9.    Average Fiber Length                0.05514077913441697
+	10.   Endpoints                           0.05466419335701107
+	11.   Endpoints/Total Length              0.05422128637524822
+	12.   Curvature_50.0                      0.051244042219885
+	13.   Alignment                           0.048059119033504336
+Model details:
+{'reduce_dim__n_components': None, 'classify__weights': 'distance', 'classify__p': 1, 'classify__n_neighbors': 23, 'classify': KNeighborsClassifier(n_neighbors=23, p=1, weights='distance')}
+
+
+*Monoblast and RL*, RandomForestClassifier
+classes:['Monoblasts' 'Reactive Lymphs']
+confusion matrix:
+[[102  20]
+ [ 19  97]]
+ROC AUC: 0.920576596947428
+accuracy by class: [0.83613445 0.83613445]
+average accuracy (balanced, by class): 0.8361344537815126
+precision by class: [0.84297521 0.82905983]
+average precision (balanced, by class): 0.8360175178356997
+sensitivity by class: [0.83606557 0.8362069 ]
+average sensitivity (balanced, by class): 0.8361362351611079
+specificity by class: [0.8362069  0.83606557]
+average specificity (balanced, by class): 0.8361362351611079
+Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
+Features in order of final importance:
+	1.    Total Length (microns)              0.19665618615726468
+	2.    % High Density Matrix               0.18265968960218004
+	3.    Lacunarity                          0.11971297863802316
+	4.    HGU (microns)                       0.11853710685770627
+	5.    Endpoints                           0.11218565769627825
+	6.    Branchpoints                        0.10967214144712528
+	7.    Endpoints/Total Length              0.10619917999666653
+	8.    Branchpoints/Total Length           0.10190805867310038
+	9.    Average Fiber Length                0.09754494435668845
+	10.   Average Fiber Thickness             0.08917403036151486
+	11.   Box-Counting Fractal Dimension      0.0844027548094395
+	12.   Alignment                           0.027143740334179732
+	13.   Curvature_50.0                      0.018633170768562073
+Model details:
+{'reduce_dim__n_components': None, 'classify__n_estimators': 300, 'classify__min_samples_split': 2, 'classify__min_samples_leaf': 1, 'classify__max_features': 'sqrt', 'classify__max_depth': 30, 'classify__bootstrap': True, 'classify': RandomForestClassifier(max_depth=30, n_estimators=300, random_state=42)}
+
+
+*Monoblast and RL*, KNeighborsClassifier
+classes:['Monoblasts' 'Reactive Lymphs']
+confusion matrix:
+[[99 23]
+ [30 86]]
+ROC AUC: 0.8252897117015262
+accuracy by class: [0.77731092 0.77731092]
+average accuracy (balanced, by class): 0.7773109243697479
+precision by class: [0.76744186 0.78899083]
+average precision (balanced, by class): 0.7782163430765949
+sensitivity by class: [0.81147541 0.74137931]
+average sensitivity (balanced, by class): 0.7764273600904465
+specificity by class: [0.74137931 0.81147541]
+average specificity (balanced, by class): 0.7764273600904465
+Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
+Features in order of final importance:
+	1.    % High Density Matrix               0.06445429260751137
+	2.    Total Length (microns)              0.040278373823636936
+	3.    Lacunarity                          0.025358405614506495
+	4.    Average Fiber Thickness             0.014276733189815285
+	5.    Box-Counting Fractal Dimension      0.005399936475982656
+	6.    HGU (microns)                       0.0016999888022772693
+	7.    Branchpoints/Total Length           0.0015959864087787018
+	8.    Average Fiber Length                -0.0023589266486296694
+	9.    Endpoints                           -0.006718466036237591
+	10.   Alignment                           -0.00847691241506677
+	11.   Curvature_50.0                      -0.010307578432674816
+	12.   Branchpoints                        -0.010884093167021474
+	13.   Endpoints/Total Length              -0.014793659963640883
+Model details:
+{'reduce_dim__n_components': None, 'classify__weights': 'uniform', 'classify__p': 1.5, 'classify__n_neighbors': 3, 'classify': KNeighborsClassifier(n_neighbors=3, p=1.5)}
+
+
+*Myeloblast and RL*, RandomForestClassifier
 classes:['Myeloblasts' 'Reactive Lymphs']
 confusion matrix:
-[[107  18]
- [ 29  88]]
-accuracy by class: [0.80578512 0.80578512]
-average accuracy (balanced, by class): 0.8057851239669421
-precision by class: [0.78676471 0.83018868]
-average precision (balanced, by class): 0.808476692563818
-sensitivity by class: [0.856      0.75213675]
-average sensitivity (balanced, by class): 0.804068376068376
-specificity by class: [0.75213675 0.856     ]
-average specificity (balanced, by class): 0.804068376068376
-AUC: 0.8713846153846154
+[[96 29]
+ [22 95]]
+ROC AUC: 0.8597948717948717
+accuracy by class: [0.7892562 0.7892562]
+average accuracy (balanced, by class): 0.7892561983471075
+precision by class: [0.81355932 0.76612903]
+average precision (balanced, by class): 0.7898441771459814
+sensitivity by class: [0.768      0.81196581]
+average sensitivity (balanced, by class): 0.789982905982906
+specificity by class: [0.81196581 0.768     ]
+average specificity (balanced, by class): 0.789982905982906
 Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
-Permutation importance using training set:
-	mean accuracy importances: {'Lacunarity': 0.08537190082644626, 'Total Length (microns)': 0.014958677685950392, 'Endpoints': 0.01603305785123965, 'HGU (microns)': 0.05433884297520659, 'Branchpoints': 0.005289256198347088, 'Box-Counting Fractal Dimension': 0.06231404958677683, 'Curvature_50.0': 0.019628099173553695, '% High Density Matrix': 0.20103305785123965, 'Alignment': 0.017066115702479324, 'Branchpoints/Total Length': 0.06702479338842975, 'Endpoints/Total Length': 0.06880165289256196, 'Average Fiber Length': 0.030702479338842962, 'Average Fiber Thickness': 0.048760330578512374}
-	mean precision importances: {'Lacunarity': 0.08779432288511696, 'Total Length (microns)': 0.016547270252165628, 'Endpoints': 0.017300457537182793, 'HGU (microns)': 0.0554562501561933, 'Branchpoints': 0.007504441879628082, 'Box-Counting Fractal Dimension': 0.0623769495369999, 'Curvature_50.0': 0.020663069491687926, '% High Density Matrix': 0.20174527767308426, 'Alignment': 0.018268630692390386, 'Branchpoints/Total Length': 0.06920983887207996, 'Endpoints/Total Length': 0.0640601289941136, 'Average Fiber Length': 0.03328712328133836, 'Average Fiber Thickness': 0.05134366779406129}
-	mean sensitivity importances: {'Lacunarity': 0.08461196581196574, 'Total Length (microns)': 0.014417094017093986, 'Endpoints': 0.013310085470085413, 'HGU (microns)': 0.05161811965811957, 'Branchpoints': 0.004381538461538397, 'Box-Counting Fractal Dimension': 0.0626037606837606, 'Curvature_50.0': 0.01938290598290597, '% High Density Matrix': 0.1979422222222222, 'Alignment': 0.016711452991452963, 'Branchpoints/Total Length': 0.06485538461538454, 'Endpoints/Total Length': 0.06451316239316232, 'Average Fiber Length': 0.029616068376068297, 'Average Fiber Thickness': 0.04706324786324778}
-	mean specificity importances: {'Lacunarity': 0.08461196581196574, 'Total Length (microns)': 0.014417094017093986, 'Endpoints': 0.013310085470085413, 'HGU (microns)': 0.05161811965811957, 'Branchpoints': 0.004381538461538397, 'Box-Counting Fractal Dimension': 0.0626037606837606, 'Curvature_50.0': 0.01938290598290597, '% High Density Matrix': 0.1979422222222222, 'Alignment': 0.016711452991452963, 'Branchpoints/Total Length': 0.06485538461538454, 'Endpoints/Total Length': 0.06451316239316232, 'Average Fiber Length': 0.029616068376068297, 'Average Fiber Thickness': 0.04706324786324778}
-Permutation importance using testing set:
-	mean accuracy importances: {'Lacunarity': 0.08483471074380164, 'Total Length (microns)': 0.014297520661156997, 'Endpoints': 0.01896694214876031, 'HGU (microns)': 0.0518181818181818, 'Branchpoints': 0.002396694214876013, 'Box-Counting Fractal Dimension': 0.059090909090909076, 'Curvature_50.0': 0.02066115702479337, '% High Density Matrix': 0.19776859504132233, 'Alignment': 0.01743801652892559, 'Branchpoints/Total Length': 0.06723140495867766, 'Endpoints/Total Length': 0.07033057851239669, 'Average Fiber Length': 0.03161157024793386, 'Average Fiber Thickness': 0.05123966942148759}
-	mean precision importances: {'Lacunarity': 0.08733991589334661, 'Total Length (microns)': 0.016115406445342467, 'Endpoints': 0.02035161010107356, 'HGU (microns)': 0.05313384874427201, 'Branchpoints': 0.004663892927175605, 'Box-Counting Fractal Dimension': 0.05932075737690589, 'Curvature_50.0': 0.021861705257413603, '% High Density Matrix': 0.19867236558934892, 'Alignment': 0.01858041494670528, 'Branchpoints/Total Length': 0.06930766636506135, 'Endpoints/Total Length': 0.06510451985552737, 'Average Fiber Length': 0.034180186745940026, 'Average Fiber Thickness': 0.05384212909125226}
-	mean sensitivity importances: {'Lacunarity': 0.08410564102564094, 'Total Length (microns)': 0.013659487179487138, 'Endpoints': 0.016289572649572585, 'HGU (microns)': 0.04913982905982897, 'Branchpoints': 0.0014174358974358293, 'Box-Counting Fractal Dimension': 0.05930871794871785, 'Curvature_50.0': 0.02035008547008545, '% High Density Matrix': 0.19479863247863244, 'Alignment': 0.017117948717948698, 'Branchpoints/Total Length': 0.06498700854700848, 'Endpoints/Total Length': 0.06595487179487175, 'Average Fiber Length': 0.03054256410256402, 'Average Fiber Thickness': 0.04956717948717941}
-	mean specificity importances: {'Lacunarity': 0.08410564102564094, 'Total Length (microns)': 0.013659487179487138, 'Endpoints': 0.016289572649572585, 'HGU (microns)': 0.04913982905982897, 'Branchpoints': 0.0014174358974358293, 'Box-Counting Fractal Dimension': 0.05930871794871785, 'Curvature_50.0': 0.02035008547008545, '% High Density Matrix': 0.19479863247863244, 'Alignment': 0.017117948717948698, 'Branchpoints/Total Length': 0.06498700854700848, 'Endpoints/Total Length': 0.06595487179487175, 'Average Fiber Length': 0.03054256410256402, 'Average Fiber Thickness': 0.04956717948717941}
-Final feature importances (balanced average over all previously reported values):
-	{'Lacunarity': 0.08534700800299058, 'Total Length (microns)': 0.014759004679722219, 'Endpoints': 0.01648142298469654, 'HGU (microns)': 0.05203287764121885, 'Branchpoints': 0.003931529242246905, 'Box-Counting Fractal Dimension': 0.06086595285706858, 'Curvature_50.0': 0.020285001731678933, '% High Density Matrix': 0.19808762569458804, 'Alignment': 0.017376497661162987, 'Branchpoints/Total Length': 0.06655731123862933, 'Endpoints/Total Length': 0.06615411857883347, 'Average Fiber Length': 0.03126232807141498, 'Average Fiber Thickness': 0.04980583144827099}
 Features in order of final importance:
-	1.    % High Density Matrix               0.19808762569458804
-	2.    Lacunarity                          0.08534700800299058
-	3.    Branchpoints/Total Length           0.06655731123862933
-	4.    Endpoints/Total Length              0.06615411857883347
-	5.    Box-Counting Fractal Dimension      0.06086595285706858
-	6.    HGU (microns)                       0.05203287764121885
-	7.    Average Fiber Thickness             0.04980583144827099
-	8.    Average Fiber Length                0.03126232807141498
-	9.    Curvature_50.0                      0.020285001731678933
-	10.   Alignment                           0.017376497661162987
-	11.   Endpoints                           0.01648142298469654
-	12.   Total Length (microns)              0.014759004679722219
-	13.   Branchpoints                        0.003931529242246905
+	1.    % High Density Matrix               0.29346989680987434
+	2.    Average Fiber Thickness             0.15562955408057771
+	3.    Branchpoints/Total Length           0.1546200830938762
+	4.    Endpoints/Total Length              0.15011298427683964
+	5.    Lacunarity                          0.1413274398268219
+	6.    HGU (microns)                       0.1267936799639335
+	7.    Box-Counting Fractal Dimension      0.11228103197470327
+	8.    Average Fiber Length                0.10195608379766621
+	9.    Endpoints                           0.09667128555295038
+	10.   Branchpoints                        0.09482282034648588
+	11.   Total Length (microns)              0.09453800342692574
+	12.   Alignment                           0.04661713924067587
+	13.   Curvature_50.0                      0.04148391459731247
 Model details:
-{'reduce_dim__n_components': None, 'classify__n_estimators': 300, 'classify__min_samples_split': 4, 'classify__max_features': 'sqrt', 'classify__max_depth': 25, 'classify__bootstrap': True, 'classify': RandomForestClassifier()}
+{'reduce_dim__n_components': None, 'classify__n_estimators': 100, 'classify__min_samples_split': 3, 'classify__min_samples_leaf': 1, 'classify__max_features': 'sqrt', 'classify__max_depth': 30, 'classify__bootstrap': True, 'classify': RandomForestClassifier(max_depth=30, min_samples_split=3, random_state=42)}
 
 
-*All blasts and RL*
+*Myeloblast and RL*, KNeighborsClassifier
+classes:['Myeloblasts' 'Reactive Lymphs']
+confusion matrix:
+[[90 35]
+ [33 84]]
+ROC AUC: 0.759008547008547
+accuracy by class: [0.71900826 0.71900826]
+average accuracy (balanced, by class): 0.71900826446281
+precision by class: [0.73170732 0.70588235]
+average precision (balanced, by class): 0.7187948350071736
+sensitivity by class: [0.72       0.71794872]
+average sensitivity (balanced, by class): 0.7189743589743589
+specificity by class: [0.71794872 0.72      ]
+average specificity (balanced, by class): 0.7189743589743589
+Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
+Features in order of final importance:
+	1.    % High Density Matrix               0.14943171852635279
+	2.    Lacunarity                          0.10032896470508433
+	3.    Average Fiber Thickness             0.08139579992059137
+	4.    Branchpoints/Total Length           0.0690434118519267
+	5.    Curvature_50.0                      0.06303536216236767
+	6.    Endpoints                           0.061175616161851784
+	7.    Endpoints/Total Length              0.060562259068586435
+	8.    Total Length (microns)              0.060102495905359446
+	9.    Average Fiber Length                0.05297746215238759
+	10.   HGU (microns)                       0.0525090781021087
+	11.   Box-Counting Fractal Dimension      0.047512501690348805
+	12.   Alignment                           0.04697536364641834
+	13.   Branchpoints                        0.04695852142109407
+Model details:
+{'reduce_dim__n_components': 5, 'classify__weights': 'distance', 'classify__p': 1.5, 'classify__n_neighbors': 3, 'classify': KNeighborsClassifier(n_neighbors=3, p=1.5, weights='distance')}
+
+
+*All blasts and RL*, RandomForestClassifier
 classes:['Blasts' 'Reactive Lymphs']
 confusion matrix:
-[[646  18]
- [ 86  30]]
-accuracy by class: [0.86666667 0.86666667]
-average accuracy (balanced, by class): 0.8666666666666667
-precision by class: [0.88251366 0.625     ]
-average precision (balanced, by class): 0.7537568306010929
-sensitivity by class: [0.97289157 0.25862069]
-average sensitivity (balanced, by class): 0.6157561279601164
-specificity by class: [0.25862069 0.97289157]
-average specificity (balanced, by class): 0.6157561279601164
-AUC: 0.846586778147071
+[[653  11]
+ [101  15]]
+ROC AUC: 0.7959402264229329
+accuracy by class: [0.85641026 0.85641026]
+average accuracy (balanced, by class): 0.8564102564102564
+precision by class: [0.86604775 0.57692308]
+average precision (balanced, by class): 0.7214854111405835
+sensitivity by class: [0.98343373 0.12931034]
+average sensitivity (balanced, by class): 0.5563720398836727
+specificity by class: [0.12931034 0.98343373]
+average specificity (balanced, by class): 0.5563720398836727
 Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
-Permutation importance using training set:
-	mean accuracy importances: {'Lacunarity': 0.011474358974359018, 'Total Length (microns)': 0.013371794871794913, 'Endpoints': 0.0112564102564103, 'HGU (microns)': 0.04228205128205131, 'Branchpoints': 0.006641025641025665, 'Box-Counting Fractal Dimension': 0.008641025641025679, 'Curvature_50.0': 0.00275641025641026, '% High Density Matrix': 0.04141025641025644, 'Alignment': -0.000999999999999993, 'Branchpoints/Total Length': 0.008012820512820552, 'Endpoints/Total Length': 0.020692307692307725, 'Average Fiber Length': 0.026358974358974382, 'Average Fiber Thickness': 0.03885897435897438}
-	mean precision importances: {'Lacunarity': 0.04932074302339985, 'Total Length (microns)': 0.05706217755954388, 'Endpoints': 0.04875888964855206, 'HGU (microns)': 0.11249010595754699, 'Branchpoints': 0.030367961523174513, 'Box-Counting Fractal Dimension': 0.026999431510846002, 'Curvature_50.0': 0.01412858572525874, '% High Density Matrix': 0.20938918775524162, 'Alignment': -0.003297167580271766, 'Branchpoints/Total Length': 0.035436512582383756, 'Endpoints/Total Length': 0.07811911224259661, 'Average Fiber Length': 0.08419286311090791, 'Average Fiber Thickness': 0.11640933225286694}
-	mean sensitivity importances: {'Lacunarity': 0.01833636269214793, 'Total Length (microns)': 0.024004206481096836, 'Endpoints': 0.007678645616950593, 'HGU (microns)': -0.008675737432488536, 'Branchpoints': 0.004398628998753672, 'Box-Counting Fractal Dimension': 0.04623364146240136, 'Curvature_50.0': -0.0002664104694640268, '% High Density Matrix': 0.09952430411300375, 'Alignment': -0.004571562110510978, 'Branchpoints/Total Length': 0.00801464478604075, 'Endpoints/Total Length': 0.007457935189032022, 'Average Fiber Length': -0.015573587453261291, 'Average Fiber Thickness': 0.010088543830494432}
-	mean specificity importances: {'Lacunarity': 0.01833636269214793, 'Total Length (microns)': 0.024004206481096836, 'Endpoints': 0.007678645616950593, 'HGU (microns)': -0.008675737432488536, 'Branchpoints': 0.004398628998753672, 'Box-Counting Fractal Dimension': 0.04623364146240136, 'Curvature_50.0': -0.0002664104694640268, '% High Density Matrix': 0.09952430411300375, 'Alignment': -0.004571562110510978, 'Branchpoints/Total Length': 0.00801464478604075, 'Endpoints/Total Length': 0.007457935189032022, 'Average Fiber Length': -0.015573587453261291, 'Average Fiber Thickness': 0.010088543830494432}
-Permutation importance using testing set:
-	mean accuracy importances: {'Lacunarity': 0.012397435897435942, 'Total Length (microns)': 0.013115384615384662, 'Endpoints': 0.011628205128205171, 'HGU (microns)': 0.042166666666666686, 'Branchpoints': 0.007615384615384643, 'Box-Counting Fractal Dimension': 0.008076923076923115, 'Curvature_50.0': 0.0017179487179487195, '% High Density Matrix': 0.04010256410256413, 'Alignment': -0.0007435897435897365, 'Branchpoints/Total Length': 0.006884615384615411, 'Endpoints/Total Length': 0.021756410256410286, 'Average Fiber Length': 0.027166666666666686, 'Average Fiber Thickness': 0.03932051282051285}
-	mean precision importances: {'Lacunarity': 0.053288521854289846, 'Total Length (microns)': 0.056255872512525736, 'Endpoints': 0.050383834134407, 'HGU (microns)': 0.11194834505585324, 'Branchpoints': 0.03443154311848025, 'Box-Counting Fractal Dimension': 0.021936010543780794, 'Curvature_50.0': 0.009539191918532187, '% High Density Matrix': 0.20754758431304102, 'Alignment': -0.002526927269747786, 'Branchpoints/Total Length': 0.030844194841840047, 'Endpoints/Total Length': 0.08162663922932069, 'Average Fiber Length': 0.08606484230444883, 'Average Fiber Thickness': 0.11683113237193413}
-	mean sensitivity importances: {'Lacunarity': 0.020265891150810168, 'Total Length (microns)': 0.025063097216452054, 'Endpoints': 0.009355525550477804, 'HGU (microns)': -0.00924153510594097, 'Branchpoints': 0.00628713128375575, 'Box-Counting Fractal Dimension': 0.04611575612796015, 'Curvature_50.0': -0.0015878167843788615, '% High Density Matrix': 0.09964556501869548, 'Alignment': -0.0035316265060240646, 'Branchpoints/Total Length': 0.007067407561279635, 'Endpoints/Total Length': 0.009007841711674316, 'Average Fiber Length': -0.01378297673452427, 'Average Fiber Thickness': 0.009577014956377267}
-	mean specificity importances: {'Lacunarity': 0.020265891150810168, 'Total Length (microns)': 0.025063097216452054, 'Endpoints': 0.009355525550477804, 'HGU (microns)': -0.00924153510594097, 'Branchpoints': 0.00628713128375575, 'Box-Counting Fractal Dimension': 0.04611575612796015, 'Curvature_50.0': -0.0015878167843788615, '% High Density Matrix': 0.09964556501869548, 'Alignment': -0.0035316265060240646, 'Branchpoints/Total Length': 0.007067407561279635, 'Endpoints/Total Length': 0.009007841711674316, 'Average Fiber Length': -0.01378297673452427, 'Average Fiber Thickness': 0.009577014956377267}
-Final feature importances (balanced average over all previously reported values):
-	{'Lacunarity': 0.025460695929425108, 'Total Length (microns)': 0.029742479619293372, 'Endpoints': 0.019511960187803917, 'HGU (microns)': 0.03413157798565741, 'Branchpoints': 0.01255342943288549, 'Box-Counting Fractal Dimension': 0.03129402324416233, 'Curvature_50.0': 0.0030542102638080153, '% High Density Matrix': 0.1120986663555627, 'Alignment': -0.0029717577283349212, 'Branchpoints/Total Length': 0.013917781002037565, 'Endpoints/Total Length': 0.029390752902756, 'Average Fiber Length': 0.020633777258178335, 'Average Fiber Thickness': 0.04384388367225396}
 Features in order of final importance:
-	1.    % High Density Matrix               0.1120986663555627
-	2.    Average Fiber Thickness             0.04384388367225396
-	3.    HGU (microns)                       0.03413157798565741
-	4.    Box-Counting Fractal Dimension      0.03129402324416233
-	5.    Total Length (microns)              0.029742479619293372
-	6.    Endpoints/Total Length              0.029390752902756
-	7.    Lacunarity                          0.025460695929425108
-	8.    Average Fiber Length                0.020633777258178335
-	9.    Endpoints                           0.019511960187803917
-	10.   Branchpoints/Total Length           0.013917781002037565
-	11.   Branchpoints                        0.01255342943288549
-	12.   Curvature_50.0                      0.0030542102638080153
-	13.   Alignment                           -0.0029717577283349212
+	1.    % High Density Matrix               0.2245762651550429
+	2.    Lacunarity                          0.16380822108543608
+	3.    HGU (microns)                       0.159342374154858
+	4.    Box-Counting Fractal Dimension      0.14967295090783433
+	5.    Total Length (microns)              0.14490568864605705
+	6.    Endpoints                           0.14395925042923705
+	7.    Branchpoints                        0.1410072821022126
+	8.    Branchpoints/Total Length           0.1394457713651751
+	9.    Average Fiber Length                0.13596042068805114
+	10.   Average Fiber Thickness             0.13235818947006792
+	11.   Curvature_50.0                      0.12860489836012762
+	12.   Endpoints/Total Length              0.1260390824071163
+	13.   Alignment                           0.11174483147497925
 Model details:
-{'reduce_dim__n_components': None, 'classify__n_estimators': 100, 'classify__min_samples_split': 3, 'classify__max_features': None, 'classify__max_depth': 50, 'classify__bootstrap': True, 'classify': RandomForestClassifier()}
+{'reduce_dim__n_components': 10, 'classify__n_estimators': 100, 'classify__min_samples_split': 2, 'classify__min_samples_leaf': 2, 'classify__max_features': 'log2', 'classify__max_depth': 20, 'classify__bootstrap': True, 'classify': RandomForestClassifier(max_depth=20, max_features='log2', min_samples_leaf=2,
+                       random_state=42)}
+
+
+*All blasts and RL*, KNeighborsClassifier
+classes:['Blasts' 'Reactive Lymphs']
+confusion matrix:
+[[652  12]
+ [100  16]]
+ROC AUC: 0.7357771603656004
+accuracy by class: [0.85641026 0.85641026]
+average accuracy (balanced, by class): 0.8564102564102564
+precision by class: [0.86702128 0.57142857]
+average precision (balanced, by class): 0.719224924012158
+sensitivity by class: [0.98192771 0.13793103]
+average sensitivity (balanced, by class): 0.5599293726630661
+specificity by class: [0.13793103 0.98192771]
+average specificity (balanced, by class): 0.5599293726630661
+Features: ['Lacunarity', 'Total Length (microns)', 'Endpoints', 'HGU (microns)', 'Branchpoints', 'Box-Counting Fractal Dimension', 'Curvature_50.0', '% High Density Matrix', 'Alignment', 'Branchpoints/Total Length', 'Endpoints/Total Length', 'Average Fiber Length', 'Average Fiber Thickness', 'cell_type']
+Features in order of final importance:
+	1.    % High Density Matrix               0.2244701436135914
+	2.    Lacunarity                          0.18046669939581902
+	3.    Average Fiber Thickness             0.16864035713233616
+	4.    Alignment                           0.16609910205471162
+	5.    Average Fiber Length                0.16300683554855613
+	6.    Box-Counting Fractal Dimension      0.15981295562338033
+	7.    HGU (microns)                       0.15908994475551466
+	8.    Branchpoints/Total Length           0.15606485760130956
+	9.    Curvature_50.0                      0.15429417680155028
+	10.   Branchpoints                        0.153259275623967
+	11.   Endpoints/Total Length              0.15014173643881307
+	12.   Total Length (microns)              0.14964998137825444
+	13.   Endpoints                           0.1351505411653217
+Model details:
+{'reduce_dim__n_components': None, 'classify__weights': 'distance', 'classify__p': 2.25, 'classify__n_neighbors': 11, 'classify': KNeighborsClassifier(n_neighbors=11, p=2.25, weights='distance')}
 
 
