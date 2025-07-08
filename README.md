@@ -16,9 +16,9 @@ Blast_Classification
 │   └── Cell_Data.xlsx  # labeled data used to train classifiers
 ├── Modeling/           
 │   ├── models_workflow.ipynb   # code to train and test models
-│   ├── models.pickle           # trained models
-│   ├── results.txt             # model testing results
-│   └── validation.xlsx         # validation results
+│   ├── results.pickle          # trained models, results for model validation and final testing 
+│   ├── results.txt             # human readable summary of final testing results
+│   └── validation.xlsx         # results for model validation 
 ├── requirements.txt    # project dependencies
 └── README.md           # you are here
 ```
