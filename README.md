@@ -99,5 +99,6 @@ This GitHub repo and [Nucleus_Crop](https://github.com/jhtullis/Nucleus_Crop) ac
   - Some additional features were engineered from the extracted features, and other features were removed from the dataset
 - Inspiration and direction for the study, including the use of k-nearest neighbors and random forest to classify blasts based on the processed data, came from Ryan Cordner
 - Initial analyses with random forest were completed by Ryan Cordner and Abigail Gordhamer
+- Dr. Emily Evans from the BYU Math Department and Marshall Nielsen provided helpful input early in the modeling process
 - The code, documentation, and analyses contained in this repository using random forest and k-nearest neighbors were created/performed by Jason Henry Tullis
 - OpenAI's Chat GPT was useful in guiding, debugging, and improving isolated portions of the code in this repository, as well as helping structure and refine the content of this `README.md`.
